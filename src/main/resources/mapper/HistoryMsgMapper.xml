@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.weaver.mapper.HistoryMsgMapper" >
+    <resultMap id="BaseResultMap" type="com.weaver.pojo.HistoryMsg" >
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <result column="fromUserId" property="fromUserId" jdbcType="VARCHAR" />
+        <result column="targetId" property="targetId" jdbcType="VARCHAR" />
+        <result column="targetType" property="targetType" jdbcType="VARCHAR" />
+        <result column="GroupId" property="GroupId" jdbcType="VARCHAR" />
+        <result column="classname" property="classname" jdbcType="INTEGER" />
+        <result column="extra" property="extra" jdbcType="VARCHAR" />
+        <result column="imageUri" property="imageUri" jdbcType="VARCHAR" />
+        <result column="dateTime" property="dateTime" jdbcType="VARCHAR" />
+        <result column="msgId" property="msgId" jdbcType="VARCHAR" />
+        <result column="msgContent" property="msgContent" jdbcType="VARCHAR" />
+        <result column="fullAmount" property="fullAmount" jdbcType="VARCHAR" />
+    </resultMap>
+
+    <insert id="insertHistoryMsg" parameterType = "com.weaver.pojo.HistoryMsg" >
+        insert into HistoryMsg
+        (fromUserId,targetId,targetType,GroupId,classname,extra,imageUri,dateTime,msgid,msgContent,fullAmount)
+        values (#{historyMsg.fromUserId},#{historyMsg.targetId},
+        #{historyMsg.targetType},
+        #{historyMsg.GroupId},
+        #{historyMsg.classname},
+        #{historyMsg.extra},
+        #{historyMsg.imageUri},
+        #{historyMsg.dateTime},
+        #{historyMsg.msgId},
+        #{historyMsg.msgContent},
+        #{historyMsg.fullAmount})
+    </insert>
+</mapper>

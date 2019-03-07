@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.weaver.mapper.OfOfflineMapper" >
+    <resultMap id="BaseResultMap" type="com.weaver.pojo.OfOffline" >
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <result column="username" property="username" jdbcType="VARCHAR" />
+        <result column="messageID" property="messageID" jdbcType="INTEGER" />
+        <result column="creationDate" property="creationDate" jdbcType="VARCHAR" />
+        <result column="messageSize" property="messageSize" jdbcType="INTEGER" />
+        <result column="stanza" property="stanza" jdbcType="VARCHAR" />
+    </resultMap>
+
+    <insert id="INSERT_OFFLINE" parameterType="com.weaver.pojo.OfOffline">
+        INSERT INTO ofOffline (username, messageID, creationDate, messageSize, stanza)
+        VALUES (
+        #{username},
+        #{messageID},
+        #{creationDate},
+        #{messageSize},
+        #{stanza}
+        )
+    </insert>
+</mapper>

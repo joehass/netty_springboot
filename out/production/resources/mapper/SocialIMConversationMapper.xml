@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.weaver.mapper.SocialIMConversationMapper" >
+    <resultMap id="BaseResultMap" type="com.weaver.pojo.SocialIMConversation" >
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <result column="userid" property="userid" jdbcType="VARCHAR" />
+        <result column="targetid" property="targetid" jdbcType="VARCHAR" />
+        <result column="targettype" property="targettype" jdbcType="VARCHAR" />
+        <result column="targetname" property="targetname" jdbcType="VARCHAR" />
+        <result column="unreadcnt" property="unreadcnt" jdbcType="INTEGER" />
+        <result column="istop" property="istop" jdbcType="VARCHAR" />
+        <result column="lasttime" property="lasttime" jdbcType="INTEGER" />
+        <result column="isopenfire" property="isopenfire" jdbcType="INTEGER" />
+        <result column="msgcontent" property="msgcontent" jdbcType="VARCHAR" />
+        <result column="msgId" property="msgId" jdbcType="INTEGER" />
+    </resultMap>
+
+    <delete id="DELETE_IMConversation" >
+        delete from social_IMConversation where targetid = #{0}
+    </delete>
+
+
+
+    <insert id="INSERT_IMConversatio">
+
+        insert into social_IMConversation
+		        (userid, targetid, targettype,targetname,lasttime, msgcontent,isopenfire,msgid)
+			   values
+        #{socialIMConversation.userid},
+        #{socialIMConversation.targetId},
+        #{socialIMConversation.targettype},
+        #{socialIMConversation.targetname},
+        #{socialIMConversation.lasttime},
+        #{socialIMConversation.msgcontent},
+        #{socialIMConversation.isopenfire},
+        #{socialIMConversation.msgid}
+        )
+    </insert>
+
+</mapper>

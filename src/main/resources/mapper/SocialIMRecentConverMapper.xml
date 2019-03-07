@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.weaver.mapper.SocialIMRecentConverMapper" >
+    <resultMap id="BaseResultMap" type="com.weaver.pojo.SocialIMRecentConver" >
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <result column="userid" property="userid" jdbcType="VARCHAR" />
+        <result column="targetid" property="targetid" jdbcType="VARCHAR" />
+        <result column="isdel" property="isdel" jdbcType="VARCHAR" />
+        <result column="istop" property="istop" jdbcType="VARCHAR" />
+        <result column="unreadcount" property="unreadcount" jdbcType="INTEGER" />
+        <result column="updatetime" property="updatetime" jdbcType="INTEGER" />
+    </resultMap>
+
+    <select id="SELECT_IMRecentConver" >
+        select userid from social_IMRecentConver where targetid = #{0}
+    </select>
+
+    <insert id="INSERT_IMRecentConver" parameterType="com.weaver.pojo.SocialIMRecentConver">
+        insert into social_IMRecentConver
+        (userid,targetid,isdel,istop,unreadcount,updatetime)
+        values
+
+        <foreach collection="list" separator="," item="social_IMRecentConver" >
+
+            (
+            #{social_IMRecentConver.userid},
+            #{social_IMRecentConver.targetid},
+            #{social_IMRecentConver.isdel},
+            #{social_IMRecentConver.istop},
+            #{social_IMRecentConver.unreadcount},
+            #{social_IMRecentConver.updatetime}
+            )
+
+        </foreach>
+
+
+    </insert>
+
+</mapper>
